@@ -1,0 +1,24 @@
+linters:
+  enable:
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - gosec        # Security checks
+    - noctx
+    - bodyclose
+    - exhaustive
+
+linters-settings:
+  gosec:
+    severity: medium
+    confidence: medium
+
+issues:
+  exclude-rules:
+    # Test files don't need all security checks
+    - path: _test\.go
+      linters:
+        - gosec

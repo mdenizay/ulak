@@ -1,0 +1,7 @@
+ulak
+ulak-linux-amd64
+*.db
+coverage.out
+
+# Don't commit local ulak state
+.ulak/
