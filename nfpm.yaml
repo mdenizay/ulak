@@ -1,0 +1,41 @@
+name: ulak
+arch: "${GOARCH}"
+platform: linux
+version: "${VERSION}"
+section: utils
+priority: optional
+maintainer: "Mehmet Deniz Ay <mdenizay@users.noreply.github.com>"
+description: |
+  Laravel deployment tool for Ubuntu servers.
+  Ulak provides an interactive TUI wizard and direct CLI subcommands
+  for deploying and managing Laravel projects on Ubuntu over SSH.
+vendor: mdenizay
+homepage: https://github.com/mdenizay/ulak
+license: MIT
+
+contents:
+  - src: ./dist/ulak-linux-${GOARCH}
+    dst: /usr/bin/ulak
+    file_info:
+      mode: 0755
+
+  - src: ./completions/ulak.bash
+    dst: /etc/bash_completion.d/ulak
+    file_info:
+      mode: 0644
+    packager: deb
+
+  - src: ./completions/ulak.zsh
+    dst: /usr/share/zsh/vendor-completions/_ulak
+    file_info:
+      mode: 0644
+    packager: deb
+
+  - src: ./completions/ulak.fish
+    dst: /usr/share/fish/vendor_completions.d/ulak.fish
+    file_info:
+      mode: 0644
+    packager: deb
+
+deb:
+  compression: xz

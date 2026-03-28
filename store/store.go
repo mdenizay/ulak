@@ -8,7 +8,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"gorm.io/driver/sqlite" // uses modernc.org/sqlite (CGO-free)
+	"gorm.io/driver/sqlite"
+	_ "modernc.org/sqlite" // CGO-free SQLite driver; enables cross-compilation without gcc
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 
